@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { addTodo } from "../redux/actions";
+import { getVisibleTodos } from "../util/visibleTodos";
 import FilterLink from "./FilterLink";
 import Todo from "./Todo";
 
 function Todos(props) {
-  const { dispatch, todos } = props;
+  const { dispatch, todos, visibilityFilter } = props;
   const [todo, setTodo] = useState("");
 
   const handleTodoInput = (e) => {
@@ -16,9 +17,10 @@ function Todos(props) {
     setTodo("");
   };
 
+  const visibleTodos = getVisibleTodos(todos, visibilityFilter);
   return (
     <div>
-      <Todo todos={todos} dispatch={dispatch} />
+      <Todo todos={todos} dispatch={dispatch} visibleTodos={visibleTodos} />
       <input type="text" value={todo} onChange={handleTodoInput} />
       <button onClick={handleAddTodo}>Add todo</button>
       <p>

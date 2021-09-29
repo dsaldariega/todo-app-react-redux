@@ -1,11 +1,11 @@
 import React from "react";
 import { toggleTodo } from "../redux/actions";
 function Todo(props) {
-  const { dispatch, todos } = props;
+  const { dispatch, todos, visibleTodos } = props;
 
   return (
     <div>
-      {todos.map((todo) => (
+      {visibleTodos.map((todo) => (
         <div
           key={todo.id}
           onClick={() => {
