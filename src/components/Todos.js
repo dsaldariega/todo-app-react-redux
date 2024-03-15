@@ -27,12 +27,6 @@ function Todos(props) {
         Show: {""}
         <FilterLink dispatch={dispatch} filter="SHOW_ALL">
           All
-        </FilterLink>{" "}
-        <FilterLink dispatch={dispatch} filter="SHOW_ACTIVE">
-          Active
-        </FilterLink>{" "}
-        <FilterLink dispatch={dispatch} filter="SHOW_COMPLETED">
-          Completed
         </FilterLink>
       </p>
     </div>
