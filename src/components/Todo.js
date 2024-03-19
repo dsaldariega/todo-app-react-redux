@@ -2,7 +2,6 @@ import React from "react";
 import { toggleTodo } from "../redux/actions";
 function Todo(props) {
   const { dispatch, todos, visibleTodos } = props;
-  console.log("%c Line:5 🍺 visibleTodos", "color:#f5ce50", visibleTodos);
 
   return (
     <div>

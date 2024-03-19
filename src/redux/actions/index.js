@@ -15,6 +15,7 @@ export const toggleTodo = (id) => {
 };
 
 export const visibilityFilter = (filter) => {
+  console.log("%c Line:18 🥪 filter", "color:#ea7e5c", filter);
   return {
     type: "SET_VISIBILITY_FILTER",
     filter,

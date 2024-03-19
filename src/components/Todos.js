@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { addTodo } from "../redux/actions";
 import { getVisibleTodos } from "../util/visibleTodos";
-import FilterLink from "./FilterLink";
 import Todo from "./Todo";
+import FilterLink from "./FilterLink";
 
 function Todos(props) {
   const { dispatch, todos, visibilityFilter } = props;
@@ -25,9 +25,7 @@ function Todos(props) {
       <button onClick={handleAddTodo}>Add todo</button>
       <p>
         Show: {""}
-        <FilterLink dispatch={dispatch} filter="SHOW_ALL">
-          All
-        </FilterLink>
+        <FilterLink>All</FilterLink>
       </p>
     </div>
   );

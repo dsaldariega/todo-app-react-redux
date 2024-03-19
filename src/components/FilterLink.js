@@ -1,33 +1,20 @@
-import { useState } from "react";
 import { visibilityFilter } from "../redux/actions";
 import { useDispatch } from "react-redux";
+import { Filters } from "../constants/filters";
 
-const FilterLink = ({ filter, children }) => {
-  console.log("%c Line:6 🌽 children", "color:#ffdd4d", children);
-  const [useFilter, setUseFilter] = useState("SHOW_ALL");
+const FilterLink = ({ filter }) => {
   const dispatch = useDispatch();
-
-  const handleClick = (e) => {
-    console.log("%c Line:13 🍺 e.target.value", "color:#42b983", e);
-  }
-  // "SHOW_ALL"
-  // "SHOW_ACTIVE"
-  // "SHOW_COMPLETED"
+  
+  const { all, active, completed } = Filters;
+  const handleOnChange = (e) => {
+    dispatch(visibilityFilter(e.target.value));
+  };
 
   return (
-    <select
-      onClick={
-        // () => {
-        // setUseFilter(useFilter);
-        // dispatch(visibilityFilter(useFilter));
-        handleClick
-      // }
-    }
-    >
-      <option value="all">All</option>
-      <option value="active">Active</option>
-      <option value="completed">Completed</option>
-      {useFilter}
+    <select onChange={handleOnChange}>
+      <option value="SHOW_ALL">All</option>
+      <option value="SHOW_ACTIVE">Active</option>
+      <option value="SHOW_COMPLETED">Completed</option>
     </select>
   );
 };
